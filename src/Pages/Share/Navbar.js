@@ -1,23 +1,28 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import CustomLink from './CustomLink';
 
 const Navbar = () => {
 
-    // const [user, loading] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     // if(loading){
     //    <Loading></Loading>;
     // }
 
-    // const logout = () => {
-    //     signOut(auth);
-    //   };
+    const logout = () => {
+        signOut(auth);
+      };
 
     const manuItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>
         <li><CustomLink to='/phones'>Phones</CustomLink></li>
         <li><CustomLink to='/addphone'>Add Phone</CustomLink></li>
         {
+            user ? <li><CustomLink onClick={logout} to='/login'>Log Out</CustomLink></li>
+            :
             <li><CustomLink to='/login'>Login</CustomLink></li>
 
         }
