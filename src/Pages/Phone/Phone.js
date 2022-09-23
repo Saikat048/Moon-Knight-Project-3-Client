@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import usePhones from '../Hook/CustomHook';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Phone = ({phone}) => {
 
@@ -33,7 +35,8 @@ const Phone = ({phone}) => {
                     console.log(data)
                     if (data.deletedCount > 0) {
                         const remaining = products.filter(product => product._id !== id)
-                        setProducts(remaining)
+                        setProducts(remaining);
+                        toast("Deleted")
                     }
                 })
         }
@@ -49,6 +52,7 @@ const Phone = ({phone}) => {
                     <button onClick={() => showDetail(_id)} className="btn btn-primary">Detail</button>
                     <button onClick={() => handleDelete(_id)} className="btn btn-secondary">Delete</button>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );
