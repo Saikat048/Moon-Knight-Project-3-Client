@@ -17,13 +17,13 @@ const Navbar = () => {
       };
 
     const manuItems = <>
-        <li><CustomLink to='/home'>Home</CustomLink></li>
-        <li><CustomLink to='/phones'>Phones</CustomLink></li>
-        <li><CustomLink to='/addphone'>Add Phone</CustomLink></li>
+        <li><CustomLink className='text-xl' to='/home'>Home</CustomLink></li>
+        <li><CustomLink className='text-xl' to='/phones'>Phones</CustomLink></li>
+        <li><CustomLink className='text-xl' to='/addphone'>Add Phone</CustomLink></li>
         {
-            user ? <li><CustomLink onClick={logout} to='/login'>Log Out</CustomLink></li>
+            user ? <li><CustomLink className='text-xl' onClick={logout} to='/login'>Log Out</CustomLink></li>
             :
-            <li><CustomLink to='/login'>Login</CustomLink></li>
+            <li><CustomLink className='text-xl' to='/login'>Login</CustomLink></li>
 
         }
 
@@ -32,7 +32,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-slate-300 px-16">
+        <div className="navbar bg-slate-300 py-6 px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const Navbar = () => {
                         {manuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">C&A Hardware Tools</a>
+                <a className="btn btn-ghost normal-case text-4xl">iPhone Collection</a>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

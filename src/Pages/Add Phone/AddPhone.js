@@ -1,34 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import usePhones from '../Hook/CustomHook';
 
 const AddPhone = () => {
-
-
-    // const { register, handleSubmit, reset } = useForm();
-    // const onSubmit = data => {
-
-    //     const url = `https://blooming-refuge-59284.herokuapp.com/products`;
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(data),
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             // if (data) {
-    //             //     toast('added')
-    //             //     setProducts(data);
-    //             //     reset();
-    //             // }
-    //         })
-    // }
+ 
+    const [phone, setPhone] = usePhones()
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        const url = `https://fast-lowlands-57075.herokuapp.com/review`;
+
+        const url = `http://localhost:5000/phones`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -40,12 +21,13 @@ const AddPhone = () => {
             .then(data => {
                 console.log(data)
                 // if (data) {
-                //     toast('Order success'); 
+                //     toast('added')
+                //     setProducts(data);
                 //     reset();
                 // }
             })
-
     }
+
 
 
     return (
